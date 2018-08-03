@@ -34,18 +34,24 @@
 </script>
 <!-- End Google Analytics -->
 
-    <meta name="author" content="Adil Sadik" />
-    <meta name="description" content="" />
+<meta name="author" content="Adil Sadik" />
+<meta name="description" content="In light of Chrome&#39;s recent push to mark all HTTP pages insecure (as well as some admonishment from a buddy at work) this site now enforces HTTPS. Github pages added support for HTTPS on custom domains in May, so the only outstanding issue was to have Pelican generate an HTTPS-only …" />
+<meta name="keywords" content="misc">
+
 <meta property="og:site_name" content="sparky005's house"/>
-<meta property="og:type" content="blog"/>
-<meta property="og:title" content="sparky005's house"/>
-<meta property="og:description" content=""/>
+<meta property="og:title" content="Now with more HTTPS!"/>
+<meta property="og:description" content="In light of Chrome&#39;s recent push to mark all HTTP pages insecure (as well as some admonishment from a buddy at work) this site now enforces HTTPS. Github pages added support for HTTPS on custom domains in May, so the only outstanding issue was to have Pelican generate an HTTPS-only …"/>
 <meta property="og:locale" content="en_US"/>
-<meta property="og:url" content="https://sparky005.com"/>
+<meta property="og:url" content="https://sparky005.com/now-with-more-https.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2018-08-02 00:00:00-04:00"/>
+<meta property="article:modified_time" content="2018-08-02 00:00:00-04:00"/>
+<meta property="article:author" content="https://sparky005.com/author/adil-sadik.html">
+<meta property="article:section" content="misc"/>
+<meta property="article:tag" content="misc"/>
 <meta property="og:image" content="https://secure.gravatar.com/avatar/d3a04321ec957b22cb686a882a63aff3?s=240">
 
-  <title>sparky005's house &ndash;     Categories
-</title>
+  <title>sparky005's house &ndash; Now with more HTTPS!</title>
 
 </head>
 <body>
@@ -92,15 +98,56 @@
 
 <article class="single">
   <header>
-    <h1>    Categories
-</h1>
+      
+    <h1 id="now-with-more-https">Now with more HTTPS!</h1>
+    <p>
+          Posted on Thu 02 August 2018 in <a href="https://sparky005.com/category/misc.html">misc</a>
+
+
+        &#8226; 1 min read
+    </p>
   </header>
+
+
   <div>
-    <ul class="list">
-      <li><a href="https://sparky005.com/category/bitcoin.html">bitcoin</a> (1)</li>
-      <li><a href="https://sparky005.com/category/misc.html">misc</a> (1)</li>
-    </ul>
+    <p>In light of <a href="https://www.theregister.co.uk/2018/02/08/google_chrome_http_shame/">Chrome's recent push to mark all HTTP pages insecure</a> (as well as some admonishment from a buddy at work) this site now enforces HTTPS. Github pages added support for <a href="https://blog.github.com/2018-05-01-github-pages-custom-domains-https/">HTTPS on custom domains in May</a>, so the only outstanding issue was to have <a href="https://github.com/getpelican/pelican">Pelican</a> generate an HTTPS-only version of the site (to prevent mixed content.)</p>
+<p>Turns out, doing that is really easy. All you have to do is change your SITEURL from this</p>
+<div class="highlight"><pre><span></span> SITEURL = &#39;http://mysite.com&#39;
+</pre></div>
+
+
+<p>to this</p>
+<div class="highlight"><pre><span></span> SITEURL = &#39;https://mysite.com&#39;
+</pre></div>
+
+
+<p>Yup. That <em>s</em> is all it takes. Regenerate, push, and you're good to go!</p>
   </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://sparky005.com/tag/misc.html">misc</a>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sparky005-com';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+        Please enable JavaScript to view comments.
+
+</noscript>
+<!-- End Disqus -->
 </article>
 
     <footer>

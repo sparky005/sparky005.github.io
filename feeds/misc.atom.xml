@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>sparky005's house - misc</title><link href="https://sparky005.com/" rel="alternate"></link><link href="https://sparky005.com/feeds/misc.atom.xml" rel="self"></link><id>https://sparky005.com/</id><updated>2018-08-02T00:00:00-04:00</updated><entry><title>Now with more HTTPS!</title><link href="https://sparky005.com/now-with-more-https.html" rel="alternate"></link><published>2018-08-02T00:00:00-04:00</published><updated>2018-08-02T00:00:00-04:00</updated><author><name>Adil Sadik</name></author><id>tag:sparky005.com,2018-08-02:/now-with-more-https.html</id><summary type="html">&lt;p&gt;In light of &lt;a href="https://www.theregister.co.uk/2018/02/08/google_chrome_http_shame/"&gt;Chrome's recent push to mark all HTTP pages insecure&lt;/a&gt; (as well as some admonishment from a buddy at work) this site now enforces HTTPS. Github pages added support for &lt;a href="https://blog.github.com/2018-05-01-github-pages-custom-domains-https/"&gt;HTTPS on custom domains in May&lt;/a&gt;, so the only outstanding issue was to have &lt;a href="https://github.com/getpelican/pelican"&gt;Pelican&lt;/a&gt; generate an HTTPS-only …&lt;/p&gt;</summary><content type="html">&lt;p&gt;In light of &lt;a href="https://www.theregister.co.uk/2018/02/08/google_chrome_http_shame/"&gt;Chrome's recent push to mark all HTTP pages insecure&lt;/a&gt; (as well as some admonishment from a buddy at work) this site now enforces HTTPS. Github pages added support for &lt;a href="https://blog.github.com/2018-05-01-github-pages-custom-domains-https/"&gt;HTTPS on custom domains in May&lt;/a&gt;, so the only outstanding issue was to have &lt;a href="https://github.com/getpelican/pelican"&gt;Pelican&lt;/a&gt; generate an HTTPS-only version of the site (to prevent mixed content.)&lt;/p&gt;
+&lt;p&gt;Turns out, doing that is really easy. All you have to do is change your SITEURL from this&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; SITEURL = &amp;#39;http://mysite.com&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;to this&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; SITEURL = &amp;#39;https://mysite.com&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Yup. That &lt;em&gt;s&lt;/em&gt; is all it takes. Regenerate, push, and you're good to go!&lt;/p&gt;</content><category term="misc"></category></entry></feed>
