@@ -1,0 +1,470 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://sparky005.com/theme/stylesheet/style.min.css">
+
+  <link rel="stylesheet" type="text/css" href="https://sparky005.com/theme/pygments/friendly.min.css">
+  <link rel="stylesheet" type="text/css" href="https://sparky005.com/theme/font-awesome/css/font-awesome.min.css">
+
+
+    <link href="https://sparky005.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="sparky005's house Atom">
+
+
+    <link rel="shortcut icon" href="https://secure.gravatar.com/avatar/d3a04321ec957b22cb686a882a63aff3?s=60" type="image/x-icon">
+    <link rel="icon" href="https://secure.gravatar.com/avatar/d3a04321ec957b22cb686a882a63aff3?s=60" type="image/x-icon">
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-109725367-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+<meta name="author" content="Adil Sadik" />
+<meta name="description" content="Metcalfe&#39;s Law states that the value of a network is proportional to the square of the number of users on the network. The classic example is a fax machine: a fax machine is useless by itself, but is very useful if a few of your friends have one. If the …" />
+<meta name="keywords" content="bitcoin, cryptocurrency, finance">
+
+<meta property="og:site_name" content="sparky005's house"/>
+<meta property="og:title" content="Predicting Bitcoin Price Using Metcalfe&#39;s Law"/>
+<meta property="og:description" content="Metcalfe&#39;s Law states that the value of a network is proportional to the square of the number of users on the network. The classic example is a fax machine: a fax machine is useless by itself, but is very useful if a few of your friends have one. If the …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://sparky005.com/predicting-bitcoin-price-using-metcalfes-law.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2017-11-15 00:00:00-05:00"/>
+<meta property="article:modified_time" content="2017-11-16 00:00:00-05:00"/>
+<meta property="article:author" content="https://sparky005.com/author/adil-sadik.html">
+<meta property="article:section" content="bitcoin"/>
+<meta property="article:tag" content="bitcoin"/>
+<meta property="article:tag" content="cryptocurrency"/>
+<meta property="article:tag" content="finance"/>
+<meta property="og:image" content="https://secure.gravatar.com/avatar/d3a04321ec957b22cb686a882a63aff3?s=240">
+
+  <title>sparky005's house &ndash; Predicting Bitcoin Price Using Metcalfe&#39;s Law</title>
+
+</head>
+<body>
+  <aside>
+    <div>
+      <a href="https://sparky005.com">
+        <img src="https://secure.gravatar.com/avatar/d3a04321ec957b22cb686a882a63aff3?s=240" alt="Adil Sadik" title="Adil Sadik">
+      </a>
+      <h1><a href="https://sparky005.com">Adil Sadik</a></h1>
+
+
+      <nav>
+        <ul class="list">
+          <li><a href="https://sparky005.com/pages/about.html#about">About</a></li>
+
+        </ul>
+      </nav>
+
+      <ul class="social">
+        <li><a class="sc-twitter" href="https://twitter.com/sparky_005" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="sc-github" href="https://github.com/sparky005" target="_blank"><i class="fa fa-github"></i></a></li>
+        <li><a class="sc-facebook" href="https://www.facebook.com/adilsadik" target="_blank"><i class="fa fa-facebook"></i></a></li>
+        <li><a class="sc-linkedin" href="https://www.linkedin.com/in/adil-sadik-02ab6378/" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        <li><a class="sc-rss" href="feeds/all.atom.xml" target="_blank"><i class="fa fa-rss"></i></a></li>
+      </ul>
+    </div>
+
+
+  </aside>
+  <main>
+
+    <nav>
+      <a href="https://sparky005.com">    Home
+</a>
+
+      <a href="/categories.html">Categories</a>
+      <a href="/archives.html">Archives</a>
+      <a href="/tags.html">Tags</a>
+
+      <a href="https://sparky005.com/feeds/all.atom.xml">    Atom
+</a>
+
+    </nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="predicting-bitcoin-price-using-metcalfes-law">Predicting Bitcoin Price Using Metcalfe's Law</h1>
+    <p>
+          Posted on Wed 15 November 2017 in <a href="https://sparky005.com/category/bitcoin.html">bitcoin</a>
+
+
+        &#8226; 5 min read
+    </p>
+  </header>
+
+
+  <div>
+    <p>Metcalfe's Law states that the value of a network is proportional to the square of the number of users on the network. The classic example is a fax machine: a fax machine is useless by itself, but is very useful if a few of your friends have one. If the number of fax machine users doubles, the value of the network increases exponentially.</p>
+<p>This model has been successfully applied to a few real-world networks. Below is Facebook, as an example (stolen from <a href="https://en.wikipedia.org/wiki/Metcalfe%27s_law#Validation_with_actual_data">Wikipedia</a>):</p>
+<div class="math">\begin{equation*}
+V = 5.70\times10^{-9}\times n^{2}
+\end{equation*}</div>
+<p><a href="http://www.businessinsider.com/bitcoin-price-movement-explained-by-one-equation-fundstrat-tom-lee-metcalf-law-network-effect-2017-10#ampshare=http://www.businessinsider.com/bitcoin-price-movement-explained-by-one-equation-fundstrat-tom-lee-metcalf-law-network-effect-2017-10">Fundstrat</a> had the idea to try and apply this formula to the price of bitcoin. Unique bitcoin addresses are used as a proxy for number of network users.</p>
+<p>Fundstrat also added to this formula the number of transactions per user. Per the article, they arrived at their formula as such:</p>
+<blockquote>
+<p>FundStrat found a formula by regressing the price of bitcoin against both unique addresses squared and transaction volume per user. This model explained 94% of the variation in the cryptocurrency price since 2013.</p>
+</blockquote>
+<p>Something like:
+</p>
+<div class="math">\begin{equation*}
+BTC = x\times n^{2} \times \frac tn
+\end{equation*}</div>
+<p>Where X is a constant, n is number of addresses, and t is transactions</p>
+<p>In this notebook, I try and replicate these results. Ultimately, I was able to reproduce the results by <em>not</em> normalizing the number of transactions (using the raw transaction volume instead) as such:</p>
+<div class="math">\begin{equation*}
+BTC = x\times n^{2} \times t
+\end{equation*}</div>
+<p>Using the above formula I achieve the same 94% accuracy.</p>
+<h2>Getting the data</h2>
+<p>First, import the required modules:</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="kn">as</span> <span class="nn">sb</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+
+<span class="n">sb</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">font_scale</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+</pre></div>
+
+
+<p>We will use the excellent <a href="https://blockchain.info/">blockchain.info</a> to acquire the necessary data. Blockchain.info has charts for nearly every aspect of bitcoin. All charts are accessible via an API that returns JSON objects</p>
+<p>The below function fetches the data, parses out the relevant portion and returns it as a pandas <code>Dataframe</code>.</p>
+<div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_data</span><span class="p">(</span><span class="n">address</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">address</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;values&#39;</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">data</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># fetch all data</span>
+<span class="n">addresses</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="s1">&#39;https://api.blockchain.info/charts/n-unique-addresses?timespan=all&amp;format=json&#39;</span><span class="p">)</span>
+<span class="n">price</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="s1">&#39;https://api.blockchain.info/charts/market-price?timespan=all&amp;format=json&#39;</span><span class="p">)</span>
+<span class="n">volume</span> <span class="o">=</span> <span class="n">get_data</span><span class="p">(</span><span class="s1">&#39;https://api.blockchain.info/charts/estimated-transaction-volume-usd?timespan=all&amp;format=json&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Once we have our data, we'll rename the columns, convert timestamps to <code>datetime</code> objects, and reindex by date</p>
+<div class="highlight"><pre><span></span><span class="c1"># rename columns</span>
+<span class="n">addresses</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;addresses&#39;</span><span class="p">]</span>
+<span class="n">volume</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;volume&#39;</span><span class="p">]</span>
+<span class="n">price</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># convert unix-stye timestamps into datetime objects</span>
+<span class="n">addresses</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">addresses</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">)</span>
+<span class="n">volume</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">volume</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">)</span>
+<span class="n">price</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">price</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="c1"># reindex the dataframe by date</span>
+<span class="n">addresses</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">keys</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">volume</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">keys</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">price</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">keys</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+
+
+<p>We'll join the dataframes so we only have one dataframe we need to worry about for the rest of the notebook</p>
+<div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">price</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">addresses</span><span class="p">,</span> <span class="n">volume</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>It looks like these API endpoints will sometimes return data for different days (ie one returns odd-numbered dates and the other even-numbered dates.) Let's interpolate the data to make sure there are no gaps</p>
+<div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span>
+<span class="n">data</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>price</th>
+      <th>addresses</th>
+      <th>volume</th>
+    </tr>
+    <tr>
+      <th>date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-11-04 20:00:00</th>
+      <td>7377.01</td>
+      <td>555458</td>
+      <td>1.309727e+09</td>
+    </tr>
+    <tr>
+      <th>2017-11-06 19:00:00</th>
+      <td>7092.12</td>
+      <td>714349</td>
+      <td>1.826009e+09</td>
+    </tr>
+    <tr>
+      <th>2017-11-08 19:00:00</th>
+      <td>7158.03</td>
+      <td>727945</td>
+      <td>2.267000e+09</td>
+    </tr>
+    <tr>
+      <th>2017-11-10 19:00:00</th>
+      <td>6362.85</td>
+      <td>455431</td>
+      <td>1.344146e+09</td>
+    </tr>
+    <tr>
+      <th>2017-11-12 19:00:00</th>
+      <td>6550.22</td>
+      <td>694828</td>
+      <td>2.115296e+09</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<p>Looks good. We only care about the last ~3 years, so let's cut that out of the dataframe</p>
+<div class="highlight"><pre><span></span><span class="c1"># get the last ~3 years</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">1150</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Great! Let's take a look at what we have. Since all three values are on such different scales, we'll look at them separately</p>
+<div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">price</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+
+
+<p><img alt="png" src="https://sparky005.com/images/output_21_1.png"></p>
+<div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">addresses</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+
+
+<p><img alt="png" src="https://sparky005.com/images/output_22_1.png"></p>
+<div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">volume</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+
+
+<p><img alt="png" src="https://sparky005.com/images/output_23_1.png"></p>
+<p>Hard to tell if there's any relationship here. What's clear is that the data is pretty noisy, so let's smooth it out by applying an exponentially-weighted moving average</p>
+<div class="highlight"><pre><span></span><span class="c1"># smoothing</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">ewma</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">span</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>Fitting the model</h2>
+<p>Ok, now we have the data. Let us try and do something with it.</p>
+<p>Here we are going to use <a href="http://scikit-learn.org/stable/">Scikit Learn</a>'s <a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html">Linear Regression</a> model to fit our data. </p>
+<p>First we create the classifier:</p>
+<div class="highlight"><pre><span></span><span class="n">clf</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">(</span><span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Next we pull our inputs out of the <code>data</code> dataframe into a new <code>train</code> dataframe</p>
+<div class="highlight"><pre><span></span><span class="n">train</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;addresses&#39;</span><span class="p">,</span> <span class="s1">&#39;volume&#39;</span><span class="p">]]</span>
+</pre></div>
+
+
+<p>Per Metcalfe's law, we will square the number of "users:"</p>
+<div class="highlight"><pre><span></span><span class="n">train</span><span class="o">.</span><span class="n">addresses</span> <span class="o">=</span> <span class="n">train</span><span class="o">.</span><span class="n">addresses</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Next we grab our target output <code>price</code> and put it in its own dataframe</p>
+<div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>Finally, we fit the model:</p>
+<div class="highlight"><pre><span></span><span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>LinearRegression(copy_X=True, fit_intercept=True, n_jobs=2, normalize=False)
+</pre></div>
+
+
+<p>Fitting the model should happen pretty quickly (less than a second on a modern machine.) </p>
+<h2>Analyzing Results</h2>
+<p>Now we can take a look at the results. We use the classifiers <code>predict</code> function to run through our test set and produce expected outputs (prices). We then join this with the actual prices, rename the columns, and plot the results for the past year.</p>
+<div class="highlight"><pre><span></span><span class="n">pred</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">train</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">compare</span> <span class="o">=</span> <span class="n">pred</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">])</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">compare</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;predicted&#39;</span><span class="p">,</span> <span class="s1">&#39;actual&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span><span class="n">compare</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">365</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+
+
+<p><img alt="png" src="https://sparky005.com/images/output_42_1.png"></p>
+<p>It looks like we have a pretty good fit here. Let's take a closer look at the last ten days</p>
+<div class="highlight"><pre><span></span><span class="n">compare</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
+</pre></div>
+
+
+<p><img alt="png" src="https://sparky005.com/images/output_44_1.png"></p>
+<p>At the time of this writing Bitcoin is (somewhat shockingly) <em>undervalued.</em></p>
+<p>We can take a look at the r-score to see that we achieved the same results as described in the article:</p>
+<div class="highlight"><pre><span></span><span class="n">r2_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">pred</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>0.94264680416237079
+</pre></div>
+
+
+<p>The data is current to 11/13 and shows Bitcoin at a predicted price of ~7000 USD and an actual price of ~6700 USD. Given that Bitcoin is currently trading at ~7200 USD on GDAX as of this writing (11/15), it seems that this model has some value.</p>
+<p>This is probably not very useful for investment purposes, though, as the data generally lags too far behind what's actually happening. Still, it's interesting to see that Bitcoin userbase and trading volume appear to be closely correlated with price.</p>
+<p>If you would like to explore this notebook yourself, you can download it <a href="https://sparky005.com/predicting_bitcoin_price_metcalfe.ipynb">here</a>. If you use conda/miniconda, you can use this <a href="https://sparky005.com/env.yaml">environment file</a>.</p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="https://sparky005.com/tag/bitcoin.html">bitcoin</a>
+      <a href="https://sparky005.com/tag/cryptocurrency.html">cryptocurrency</a>
+      <a href="https://sparky005.com/tag/finance.html">finance</a>
+    </p>
+  </div>
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'sparky005-com';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+        Please enable JavaScript to view comments.
+
+</noscript>
+<!-- End Disqus -->
+</article>
+
+    <footer>
+<p>&copy;  </p>
+<p>    Powered by <a href="http://getpelican.com" target="_blank">Pelican</a> - <a href="https://github.com/alexandrevicenzi/flex" target="_blank">Flex</a> theme by <a href="http://alexandrevicenzi.com" target="_blank">Alexandre Vicenzi</a>
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " sparky005's house ",
+  "url" : "https://sparky005.com",
+  "image": "https://secure.gravatar.com/avatar/d3a04321ec957b22cb686a882a63aff3?s=240",
+  "description": ""
+}
+</script>
+
+</body>
+</html>
