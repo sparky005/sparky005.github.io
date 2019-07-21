@@ -3,6 +3,8 @@
 from __future__ import unicode_literals
 
 AUTHOR = 'Adil Sadik'
+DISPLAY_PAGES_ON_MENU = True
+DISPLAY_CATEGORIES_ON_MENU = False
 SITENAME = "sparky005's house"
 SITEURL = 'http://localhost:8000'
 SITETITLE = AUTHOR
@@ -50,7 +52,7 @@ DEFAULT_PAGINATION = False
 #RELATIVE_URLS = True
 #THEME = './themes/pelican-alchemy/alchemy'
 #THEME = './themes/attila'
-THEME='../../pelican-themes/Flex'
+THEME='../../pelican-themes/medius'
 PLUGIN_PATHS = ['../../pelican-plugins']
 PLUGINS = ['render_math', 'post_stats']
 STATIC_PATHS = ['images', 'extra/CNAME', 'downloads']
